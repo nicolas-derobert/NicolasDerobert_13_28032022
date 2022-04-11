@@ -1,0 +1,24 @@
+@import "../../assets/Styles/variables.scss";
+@import "../../assets/Styles/mixin.scss";
+
+.GlobalLayout {
+		margin: 5% 10%;
+	width: 80%;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	@include large-max-generic {
+		width: 1200px;
+		margin: 10px auto ;
+	}
+	@include small-generic {
+		width: 95%;
+		margin: 10px 2.5%;
+	}
+	@include mobile-generic {
+		width: 95%;
+		margin: 10px 2.5%;
+	}
+}

@@ -1,0 +1,69 @@
+.thumb {
+  position: relative;
+  height: 340px;
+  width: 340px;
+  background-color: #FF6060;
+  border-radius: 10px;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .thumb {
+    height: 255px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .thumb {
+    height: 255px;
+    width: 100%;
+  }
+}
+
+.thumb h2 {
+  position: absolute;
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-top: 260px;
+  margin-left: 20px;
+  width: 60%;
+  z-index: 10;
+  color: #ffffff;
+  text-shadow: 1px 0px 0px black;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .thumb h2 {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .thumb h2 {
+    margin-top: 200px;
+  }
+}
+
+.thumb div {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.thumb div img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=Thumb.css.map */

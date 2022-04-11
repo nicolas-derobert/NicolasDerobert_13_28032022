@@ -1,0 +1,27 @@
+@import "../../assets/Styles/variables.scss";
+@import "../../assets/Styles/mixin.scss";
+
+.apropos {
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	.items {
+		color: $primary-color;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		width: 70%;
+		@include small-generic {
+			width: 100%;
+			gap: 10px;
+		}
+		@include mobile-generic {
+			width: 100%;
+			gap: 10px;
+		}
+	}
+}

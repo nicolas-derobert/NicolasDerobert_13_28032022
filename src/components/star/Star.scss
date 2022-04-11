@@ -1,0 +1,10 @@
+@import "../../assets/Styles/variables.scss";
+
+.star {
+	&.empty {
+		color: $fifthly-color;
+	}
+	&.filled {
+		color: $primary-color;
+	}
+}

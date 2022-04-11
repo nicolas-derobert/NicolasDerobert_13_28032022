@@ -1,0 +1,41 @@
+@import "../../assets/Styles/variables.scss";
+@import "../../assets/Styles/mixin.scss";
+
+header {
+	// margin: 30px 30px 10px 30px;
+	margin: 30px 10%;
+	width: 80%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	@include large-max-generic {
+		width: 1200px;
+		margin: auto;
+	}
+	@include small-generic {
+		width: 90%;
+		margin: 5%;
+	}
+	@include mobile-generic {
+		width: 90%;
+		margin: 5%;
+	}
+	.header-logo {
+		flex-grow: 7;
+		@include large-max-generic {
+			width: 1200px;
+		}
+		@include small-generic {
+			flex-grow: 1;
+            flex-basis: 40%;
+		}
+		@include mobile-generic {
+			flex-grow: 1;
+            flex-basis: 40%;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
