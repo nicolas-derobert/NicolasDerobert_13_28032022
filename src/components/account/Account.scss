@@ -1,13 +1,12 @@
 @import "../../assets/Styles/variables.scss";
 @import "../../assets/Styles/mixin.scss";
 
-
-.accounts {
+.account {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	border: 1px solid black;
-	// background-color: #fff;
+	background-color: #fff;
 	width: 80%;
 	margin: 0 auto;
 	flex-direction: column;
@@ -16,6 +15,7 @@
 	text-align: left;
 	margin-bottom: 2rem;
   }
+  
   
   .account-amount {
 	margin: 0;
@@ -46,8 +46,34 @@
 	font-weight: bold;
 	padding: 10px;
   }
+  
 
-  .header-content{
+  .transaction-button {
+	display: block;
+	width: 100%;
+	padding: 8px;
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-top: 1rem;
+	border-color: #00bc77;
+	background-color: #00bc77;
 	color: #fff;
-	margin-bottom: 2rem;	
+  }
+  
+  @media (min-width: 720px) {
+	.account {
+	  flex-direction: row;
+	}
+  
+	.account-content-wrapper.cta {
+	  flex: 0;
+	}
+  
+	.transaction-button {
+	  width: 200px;
+	}
+  }
+  .header {
+	color: #fff;
+	margin-bottom: 2rem;
   }

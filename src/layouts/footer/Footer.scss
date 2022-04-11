@@ -1,14 +1,13 @@
 @import "../../assets/Styles/variables.scss";
 
 .footer {
-	color: $white-color;
-    background-color: $black-color;
     display: flex;
-    flex-flow: column wrap  ;
-    justify-content: space-around;
-    align-items: center;
-    .footer-logo{
-        padding-top: 40px;
-    }
-	
+    justify-content: center;
+    border-top: 2px solid #ccc;
+    padding: 2rem 0 1.5rem;
+    
+	.footer-text {
+        margin: 0;
+        padding: 0;
+      }
 }

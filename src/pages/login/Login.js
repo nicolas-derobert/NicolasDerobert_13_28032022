@@ -1,68 +1,105 @@
-import React, { Fragment } from "react";
-import { useParams } from "react-router-dom";
-import data from "../../assets/data/logements.json";
-import Tag from "../../components/tag/Tag";
-import Host from "../../components/host/Host";
-import Rate from "../../components/rate/Rate";
-import Dropdown from "../../components/dropdown/Dropdown";
-import Caroussel from "../../components/caroussel/Caroussel";
-import "./FicheLogement.css";
-import ErroPage from "../erropage/ErroPage";
+import React, { Fragment, useState } from "react";
+import "./Login.css";
 
-function FicheLogement() {
-	const params = useParams();
-	const idLogementRecherche = params.FicheLogementId;
-	const logement = data.find((logement) => logement.id === idLogementRecherche);
-	if (!logement) {
-		return <ErroPage></ErroPage>;
-	}
-	const logementPictures = logement.pictures;
-	const tagList = logement.tags;
-	const hostName = logement.host.name;
-	const description = logement.description;
-	const hostPicture = logement.host.picture;
-	const equipementList = logement.equipments;
+function Login(props) {
+	const [enteredTitle, setEnteredTitle] = useState("");
+	const [enteredAmount, setEnteredAmount] = useState("");
+	// const [userInput, setUserInput] = useState({
+	//   enteredTitle: '',
+	//   enteredAmount: '',
+	//   enteredDate: '',
+	// });
 
+	const titleChangeHandler = (event) => {
+		setEnteredTitle(event.target.value);
+		// setUserInput({
+		//   ...userInput,
+		//   enteredTitle: event.target.value,
+		// });
+		// setUserInput((prevState) => {
+		//   return { ...prevState, enteredTitle: event.target.value };
+		// });
+	};
+
+	const amountChangeHandler = (event) => {
+		setEnteredAmount(event.target.value);
+		// setUserInput({
+		//   ...userInput,
+		//   enteredAmount: event.target.value,
+		// });
+	};
+
+	const submitHandler = (event) => {
+		event.preventDefault();
+
+		const expenseData = {
+			title: enteredTitle,
+			amount: enteredAmount,
+		};
+
+		props.onSaveExpenseData(expenseData);
+		setEnteredTitle("");
+		setEnteredAmount("");
+	};
 	return (
 		<Fragment>
-			<div className="caroussel-area">
-				<Caroussel arrayofpictures={logementPictures}></Caroussel>
+			<div className="bg-dark">
+				<section class="sign-in-content">
+					<i class="fa fa-user-circle sign-in-icon"></i>
+					<h1>Sign In</h1>
+					<form onSubmit={submitHandler}>
+						<div className="">
+							<div className="input-wrapper">
+								<label for="username">Username</label>
+								<input
+									type="text"
+									id="username"
+									value={enteredTitle}
+									onChange={titleChangeHandler}
+								/>
+							</div>
+							<div className="input-wrapper">
+								<label for="password">Amount</label>
+								<input
+									type="text"
+									id="password"
+									value={enteredAmount}
+									onChange={amountChangeHandler}
+								/>
+							</div>{" "}
+							<div class="input-remember">
+								<label for="remember-me">Remember me</label>
+								<input
+									type="checkbox"
+									id="remember-me"
+									value={enteredAmount}
+								/>
+							</div>
+						</div>
+						<div className="">
+							<button type="submit">Add Expense</button>
+						</div>
+					</form>
+				</section>
 			</div>
-			<section className="fichelogement">
-				<div className="title">
-					<h1>{logement.title}</h1>
-					<p className="location">{logement.location}</p>
-				</div>
-				<div className="host">
-					<Host name={hostName} picture={hostPicture}></Host>
-				</div>
-				<div className="tags">
-					{tagList.map((tagObject, index) => (
-						<Tag key={index} tag={tagObject}></Tag>
-					))}
-				</div>
-				<div className="rating">
-					<Rate rating={logement.rating}></Rate>
-				</div>
-				<div className="description">
-					<Dropdown
-						display={""}
-						datatype={"typeDescription"}
-						data={description}
-						header={"Description"}
-					></Dropdown>
-				</div>
-				<div className="equipement">
-					<Dropdown
-						display={""}
-						datatype={"typeList"}
-						data={equipementList}
-						header={"Equipement"}
-					></Dropdown>
-				</div>
-			</section>
 		</Fragment>
 	);
 }
 
-export default FicheLogement;
+export default Login;
+{
+	/* <form>
+          <div class="input-wrapper">
+            <label for="username">Username</label>
+			<input type="text" id="username">
+        </div>
+          <div class="input-wrapper">
+            <label for="password">Password</label>
+			<input type="password" id="password">
+          </div>
+         
+
+          <button class="sign-in-button">Sign In</button>
+
+        </form> */
+}

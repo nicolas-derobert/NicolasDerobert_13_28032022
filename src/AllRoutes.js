@@ -1,22 +1,22 @@
 import * as React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Accueil from "./views/accueil/Accueil";
-import APropos from "./views/apropos/APropos";
-import FicheLogement from "./views/fichelogement/FicheLogement";
-import ErroPage from "./views/erropage/ErroPage.js";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Profile from "./pages/profile/Profile";
+import ErrorPage from "./pages/erropage/ErroPage.js";
 
 function AllRoutes() {
 	return (
 		<Routes>
-			<Route path="/" element={<Navigate replace to="/Accueil" />} />
-			<Route path="/Login" element={<Accueil />} />
-			<Route path="/Profile" element={<APropos />} />
+			<Route path="/"  element={<Home/>} />
+			<Route path="/Login" element={<Login/>} />
+			<Route path="/Profile" element={<Profile/>} />
 			{/* <Route
 				path="/fichelogement/:FicheLogementId"
 				element={<FicheLogement />}
 			/> */}
-			<Route path="*" element={<ErroPage />} />
+			<Route path="*" element={<ErrorPage />} />
 		</Routes>
 	);
 }

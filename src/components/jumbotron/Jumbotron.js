@@ -1,20 +1,29 @@
 import React from "react";
 import "./Jumbotron.css";
-import AccueilImage from "../../assets/images/jumbotron-image.jpg";
-import AproposImage from "../../assets/images/apropos.png";
+import AccueilImage from "../../assets/images/bank-tree.jpeg";
+// import AproposImage from "../../assets/images/apropos.png";
 
-import { useLocation } from 'react-router-dom'
-
-
+import { useLocation } from "react-router-dom";
 
 function Jumbotron(props) {
-	const location = useLocation().pathname;
-	console.log(location)
 	return (
 		<section className="jumbotron">
-			<div>
-				<img src={location ==="/Accueil" ? AccueilImage :AproposImage} alt="Kasa Logo" />
-				<h1>{props.title}</h1>
+			<div className="hero-content" >
+				<h2 className="sr-only" data-element-id="headingsMap-1">
+					Promoted Content
+				</h2>
+				<p className="subtitle" >
+					No fees.
+				</p>
+				<p className="subtitle" >
+					No minimum deposit.
+				</p>
+				<p className="subtitle" >
+					High interest rates.
+				</p>
+				<p className="text" >
+					Open a savings account with Argent Bank today!
+				</p>
 			</div>
 		</section>
 	);

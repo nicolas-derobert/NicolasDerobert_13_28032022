@@ -4,10 +4,8 @@ import "./Footer.css";
 
 function Footer() {
   return <section className="footer">
-  <div className="footer-logo">
-      <img src={KasaWhiteLogo} alt="Kasa Logo" />
-  </div>
-  <p>© 2020 Kasa. All rights reserved
+
+  <p className="footer-text">Copyright 2020 Argent Bank
 </p>
 </section>;
 }

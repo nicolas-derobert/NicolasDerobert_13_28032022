@@ -1,66 +1,22 @@
-.Navbar {
-  font-size: 3rem;
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  margin: 10px;
-  text-transform: uppercase;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-
-.Navbar ul {
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.Navbar li {
-  padding: 0px 20px;
-  list-style-type: none;
-  white-space: nowrap;
-}
-
-.Navbar li a {
-  color: #FF6060;
+.Navbar a, .Navbar .MuiButton-root {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1rem;
+  text-transform: inherit;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-decoration: none;
 }
 
-.Navbar li a.active {
+.Navbar a.router-link-exact-active, .Navbar .MuiButton-root.router-link-exact-active {
+  color: #42b983;
+}
+
+.Navbar a .main-nav-item, .Navbar .MuiButton-root .main-nav-item {
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.Navbar a::hover, .Navbar .MuiButton-root::hover {
   text-decoration: underline;
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .Navbar {
-    -webkit-box-flex: 3;
-        -ms-flex-positive: 3;
-            flex-grow: 3;
-    margin: 0px;
-    font-size: 1.5rem;
-  }
-  .Navbar li {
-    padding: 5px;
-  }
-}
-
-@media screen and (max-width: 575.98px) {
-  .Navbar {
-    -webkit-box-flex: 3;
-        -ms-flex-positive: 3;
-            flex-grow: 3;
-    margin: 0px;
-    font-size: 1.5rem;
-  }
-  .Navbar li {
-    padding: 5px;
-  }
 }
 /*# sourceMappingURL=Navbar.css.map */

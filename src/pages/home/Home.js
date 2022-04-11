@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Jumbotron from "../../components/jumbotron/Jumbotron";
 import Gallery from "../../layouts/gallery/Gallery";
 
-function Accueil() {
+function Home() {
 	const image = "jumbotron-image.jpg"
 	const title = "Chez vous et partout ailleurs"
 	return (
@@ -13,4 +13,4 @@ function Accueil() {
 	);
 }
 
-export default Accueil;
+export default Home;
