@@ -17,7 +17,7 @@
 .dropdown .button {
   padding: 10px;
   height: 50px;
-  background-color: #FF6060;
+  background-color: #42b983;
   color: #ffffff;
   position: relative;
   border-radius: 10px;
@@ -79,7 +79,7 @@
 .dropdown .display-area {
   padding: 20px;
   background-color: #F6F6F6;
-  color: #FF6060;
+  color: #42b983;
   border-radius: 10px;
   display: none;
   -webkit-transition: All 0.5s;

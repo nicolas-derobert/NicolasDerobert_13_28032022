@@ -1,84 +1,100 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import "./Login.css";
+import  useHttp  from "../../service/use-http";
+// import {counterActions f}
 
 function Login(props) {
+
+	const url = "http://localhost:3001/api/v1//user/";
+	const loginParameter = "login";
+	const signupParameter = "signup";
+	const profileParameter = "profile";
+	const loginEndPoint = url + loginParameter;
+	const signupEndPoint = url + signupParameter;
+	const profileEndPoint = url + profileParameter;
+
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 	const [isLogin, setIsLogin] = useState(true);
-	// const [enteredTitle, setEnteredTitle] = useState("");
-	// const [enteredAmount, setEnteredAmount] = useState("");
-	// const [userInput, setUserInput] = useState({
-	//   enteredTitle: '',
-	//   enteredAmount: '',
-	//   enteredDate: '',
-	// });
+
+	const { isLoading, error, sendRequest: sendTaskRequest,data } = useHttp();
+
 	const switchAuthModeHandler = () => {
 		setIsLogin((prevState) => !prevState);
-	  };
-	
-	const titleChangeHandler = (event) => {
-		// setEnteredTitle(event.target.value);
-		// setUserInput({
-		//   ...userInput,
-		//   enteredTitle: event.target.value,
-		// });
-		// setUserInput((prevState) => {
-		//   return { ...prevState, enteredTitle: event.target.value };
-		// });
 	};
 
-	const amountChangeHandler = (event) => {
-		// setEnteredAmount(event.target.value);
-		// setUserInput({
-		//   ...userInput,
-		//   enteredAmount: event.target.value,
-		// });
-	};
+	// const titleChangeHandler = (event) => {
+	// };
+
+	// const amountChangeHandler = (event) => {
+	// };
 
 	const submitHandler = (event) => {
+		console.log("Sumit execution")
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
+		const bodyContent = {
+			email: `${enteredEmail}`,
+			password: `${enteredPassword}`,
+		};
+		const headerContent = { "Content-Type": "application/json" };
 
-		// props.onSaveExpenseData(expenseData);
-
-		if (isLogin) {
-		} else {
-		  fetch(
-			'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24',
+		// const { response, loading, error } = useHttp({
+		// 	method: "post",
+		// 	url: `${loginEndPoint}`,
+		// 	body: `${bodyContent}`,
+		// 	headers: `${headerContent}`,
+		// });
+		sendTaskRequest(
 			{
+			  url: loginEndPoint,
 			  method: 'POST',
-			  body: JSON.stringify({
-				email: enteredEmail,
-				password: enteredPassword,
-				returnSecureToken: true,
-			  }),
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
-			}
-		  ).then((res) => {
-			if (res.ok) {
-			  // ...
-			} else {
-			  return res.json().then((data) => {
-				// show an error modal
-				console.log(data);
-			  });
-			}
-		  });
+			  body:`${bodyContent}`,
+			},
+			// createTask.bind(null, taskText)
+		  );
+		if (!isLogin) {
+			// } else {
+			//   fetch(
+			// 	'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24',
+			// 	{
+			// 	  method: 'POST',
+			// 	  body: JSON.stringify({
+			// 		email: enteredEmail,
+			// 		password: enteredPassword,
+			// 		returnSecureToken: true,
+			// 	  }),
+			// 	  headers: {
+			// 		'Content-Type': 'application/json',
+			// 	  },
+			// 	}
+			//   ).then((res) => {
+			// 	if (res.ok) {
+			// 	  // ...
+			// 	} else {
+			// 	  return res.json().then((data) => {
+			// 		// show an error modal
+			// 		console.log(data);
+			// 	  });
+			// 	}
+			//   });
+			// }
 		}
-	  };
+	};
 	return (
 		<Fragment>
 			<div className="bg-dark">
-				<section class="sign-in-content">
-					<i class="fa fa-user-circle sign-in-icon"></i>
+				<section className="sign-in-content">
+					<i className="fa fa-user-circle sign-in-icon"></i>
 					<h1>Sign In</h1>
 					<form onSubmit={submitHandler}>
 						<div className="">
 							<div className="input-wrapper">
-								<label for="username">Username</label>
+								<label>Username</label>
 								<input
 									type="text"
 									id="username"
@@ -89,7 +105,7 @@ function Login(props) {
 								/>
 							</div>
 							<div className="input-wrapper">
-								<label for="password">Password</label>
+								<label>Password</label>
 								<input
 									type="text"
 									id="password"
@@ -98,8 +114,8 @@ function Login(props) {
 									ref={passwordInputRef}
 								/>
 							</div>{" "}
-							<div class="input-remember">
-								<label for="remember-me">Remember me</label>
+							<div className="input-remember">
+								<label >Remember me</label>
 								<input
 									type="checkbox"
 									id="remember-me"
@@ -118,19 +134,3 @@ function Login(props) {
 }
 
 export default Login;
-{
-	/* <form>
-          <div class="input-wrapper">
-            <label for="username">Username</label>
-			<input type="text" id="username">
-        </div>
-          <div class="input-wrapper">
-            <label for="password">Password</label>
-			<input type="password" id="password">
-          </div>
-         
-
-          <button class="sign-in-button">Sign In</button>
-
-        </form> */
-}
