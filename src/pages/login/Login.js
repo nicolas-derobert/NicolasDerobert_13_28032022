@@ -11,7 +11,6 @@ function Login(props) {
 	let isInitial = true;
 	let navigate = useNavigate();
 	const [isSubmit, setIsSubmit] = useState(false);
-
 	const dispatch = useDispatch();
 	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
@@ -23,7 +22,6 @@ function Login(props) {
 
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
-	const [isLogin, setIsLogin] = useState(true);
 
 	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
 	// const switchAuthModeHandler = () => {

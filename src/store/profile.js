@@ -1,24 +1,31 @@
+import { createSlice } from "@reduxjs/toolkit";
 
-import { createSlice } from '@reduxjs/toolkit';
-
-const initialAuthState = {
-  isAuthenticated: false,
+const initialProfileState = {
+	firstName: localStorage.getItem("firstname"),
+	lastName: localStorage.getItem("lastName"),
 };
 
-const authSlice = createSlice({
-  name: 'authentication',
-  initialState: initialAuthState,
-  reducers: {
-    setProfileFirstName(state) {
-      state.isAuthenticated = true;
-      console.log("Je suis authentifié")
-    },
-    setProfileLastName(state) {
-      state.isAuthenticated = false;
-    },
-  },
+const profileSlice = createSlice({
+	name: "profile",
+	initialState: initialProfileState,
+	reducers: {
+		setProfile(state, action) {
+			state.firstName = action.payload.firstName;
+			state.lastName = action.payload.lastName;
+			console.log(action.payload);
+			console.log("Je suis authentifié");
+			localStorage.setItem("firstname", action.payload.firstName);
+			localStorage.setItem("lastName", action.payload.lastName);
+		},
+		removeProfile(state) {
+			state.firstName = "";
+			state.firstName = "";
+			localStorage.removeItem("firstname");
+      localStorage.removeItem("lastName");
+		},
+	},
 });
 
-export const authActions = authSlice.actions;
+export const authProfile = profileSlice.actions;
 
-export default authSlice.reducer;
+export default profileSlice.reducer;

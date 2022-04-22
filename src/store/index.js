@@ -6,7 +6,7 @@ import authReducer from './auth';
 
 
 const store = configureStore({
-  reducer: { counter: profileReducer, auth: authReducer },
+  reducer: { profile: profileReducer, auth: authReducer },
 });
 
 export default store;
