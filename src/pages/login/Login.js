@@ -1,11 +1,10 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import "./Login.css";
-import  useHttp  from "../../service/use-http";
+import useHttp from "../../service/use-http";
 // import {counterActions f}
 
 function Login(props) {
-
-	const url = "http://localhost:3001/api/v1//user/";
+	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
 	const signupParameter = "signup";
 	const profileParameter = "profile";
@@ -17,8 +16,7 @@ function Login(props) {
 	const passwordInputRef = useRef();
 	const [isLogin, setIsLogin] = useState(true);
 
-	const { isLoading, error, sendRequest: sendTaskRequest,data } = useHttp();
-
+	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
 	const switchAuthModeHandler = () => {
 		setIsLogin((prevState) => !prevState);
 	};
@@ -30,33 +28,36 @@ function Login(props) {
 	// };
 
 	const submitHandler = (event) => {
-		console.log("Sumit execution")
+		console.log("Sumit execution");
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
+		console.log(enteredEmail);
+		console.log(enteredPassword);
 		const bodyContent = {
-			email: `${enteredEmail}`,
-			password: `${enteredPassword}`,
+			"email": `${enteredEmail}`,
+			"password": `${enteredPassword}`,
 		};
 		const headerContent = { "Content-Type": "application/json" };
-
-		// const { response, loading, error } = useHttp({
-		// 	method: "post",
-		// 	url: `${loginEndPoint}`,
-		// 	body: `${bodyContent}`,
-		// 	headers: `${headerContent}`,
-		// });
+		// console.log(` body: `${bodyContent}``)
 		sendTaskRequest(
 			{
-			  url: loginEndPoint,
-			  method: 'POST',
-			  headers: {
-				'Content-Type': 'application/json',
-			  },
-			  body:`${bodyContent}`,
-			},
+				url: loginEndPoint,
+				method: "POST",
+				// headers: `${headerContent}`,
+				// body: `${bodyContent}`,
+				headers: headerContent,
+				body: bodyContent,
+				// headers: { "Content-Type": "application/json" },
+				// body:{
+				// 	"email": "tony@stark.com",
+				// 	"password": "password123"
+				//   },
+			}
 			// createTask.bind(null, taskText)
-		  );
+		);
+		console.log(isLoading);
+		console.log(data);
 		if (!isLogin) {
 			// } else {
 			//   fetch(
@@ -115,7 +116,7 @@ function Login(props) {
 								/>
 							</div>{" "}
 							<div className="input-remember">
-								<label >Remember me</label>
+								<label>Remember me</label>
 								<input
 									type="checkbox"
 									id="remember-me"
