@@ -8,7 +8,6 @@ const useHttp = () => {
   const sendRequest = useCallback(async (requestConfig) => {
     setIsLoading(true);
     setError(null);
-    console.log("hello")
     console.log(requestConfig)
     console.log(JSON.stringify(requestConfig.headers))
     console.log(JSON.stringify(requestConfig.body))

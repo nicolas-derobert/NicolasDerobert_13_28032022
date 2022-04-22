@@ -1,9 +1,18 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./Login.css";
 import useHttp from "../../service/use-http";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth";
+
 // import {counterActions f}
 
 function Login(props) {
+	let isInitial = true;
+	let navigate = useNavigate();
+	const [isSubmit, setIsSubmit] = useState(false);
+
+	const dispatch = useDispatch();
 	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
 	const signupParameter = "signup";
@@ -17,14 +26,8 @@ function Login(props) {
 	const [isLogin, setIsLogin] = useState(true);
 
 	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
-	const switchAuthModeHandler = () => {
-		setIsLogin((prevState) => !prevState);
-	};
-
-	// const titleChangeHandler = (event) => {
-	// };
-
-	// const amountChangeHandler = (event) => {
+	// const switchAuthModeHandler = () => {
+	// 	setIsLogin((prevState) => !prevState);
 	// };
 
 	const submitHandler = (event) => {
@@ -32,60 +35,33 @@ function Login(props) {
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		console.log(enteredEmail);
-		console.log(enteredPassword);
 		const bodyContent = {
-			"email": `${enteredEmail}`,
-			"password": `${enteredPassword}`,
+			email: `${enteredEmail}`,
+			password: `${enteredPassword}`,
 		};
 		const headerContent = { "Content-Type": "application/json" };
-		// console.log(` body: `${bodyContent}``)
-		sendTaskRequest(
-			{
-				url: loginEndPoint,
-				method: "POST",
-				// headers: `${headerContent}`,
-				// body: `${bodyContent}`,
-				headers: headerContent,
-				body: bodyContent,
-				// headers: { "Content-Type": "application/json" },
-				// body:{
-				// 	"email": "tony@stark.com",
-				// 	"password": "password123"
-				//   },
-			}
-			// createTask.bind(null, taskText)
-		);
+		sendTaskRequest({
+			url: loginEndPoint,
+			method: "POST",
+			headers: headerContent,
+			body: bodyContent,
+		});
 		console.log(isLoading);
 		console.log(data);
-		if (!isLogin) {
-			// } else {
-			//   fetch(
-			// 	'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24',
-			// 	{
-			// 	  method: 'POST',
-			// 	  body: JSON.stringify({
-			// 		email: enteredEmail,
-			// 		password: enteredPassword,
-			// 		returnSecureToken: true,
-			// 	  }),
-			// 	  headers: {
-			// 		'Content-Type': 'application/json',
-			// 	  },
-			// 	}
-			//   ).then((res) => {
-			// 	if (res.ok) {
-			// 	  // ...
-			// 	} else {
-			// 	  return res.json().then((data) => {
-			// 		// show an error modal
-			// 		console.log(data);
-			// 	  });
-			// 	}
-			//   });
-			// }
-		}
+		setIsSubmit(true);
+		// if (!isLoading && data.status === 200) {
+		// 	dispatch(authActions.login());
+		// }
 	};
+	useEffect(() => {
+		if (isSubmit && data.status === 200) {
+			console.log(data.body.token);
+			dispatch(authActions.login(data.body.token));
+			console.log("Je suis connecté");
+			navigate('/profile')
+		}
+	}, [data]);
+
 	return (
 		<Fragment>
 			<div className="bg-dark">
@@ -125,7 +101,7 @@ function Login(props) {
 							</div>
 						</div>
 						<div className="">
-							<button type="submit">Add Expense</button>
+							<button type="submit">Sign In</button>
 						</div>
 					</form>
 				</section>

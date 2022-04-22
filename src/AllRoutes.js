@@ -5,13 +5,17 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import ErrorPage from "./pages/erropage/ErroPage.js";
+import { useSelector } from "react-redux";
+
 
 function AllRoutes() {
+	const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
 	return (
 		<Routes>
 			<Route path="/"  element={<Home/>} />
-			<Route path="/Login" element={<Login/>} />
-			<Route path="/Profile" element={<Profile/>} />
+			{!isAuth &&<Route path="/Login" element={<Login/>} />}
+			{isAuth &&<Route path="/Profile" element={<Profile/>} />}
 			{/* <Route
 				path="/fichelogement/:FicheLogementId"
 				element={<FicheLogement />}

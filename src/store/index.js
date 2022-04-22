@@ -1,33 +1,49 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const initialState = { email: '', password:'', token:'', isLoggedIn: false };
+import { configureStore } from '@reduxjs/toolkit';
 
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState,
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      state.counter = state.counter + action.payload;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    }
-  }
-});
+import profileReducer from './profile';
+import authReducer from './auth';
+
 
 const store = configureStore({
-  reducer: counterSlice.reducer
+  reducer: { counter: profileReducer, auth: authReducer },
 });
 
-export const counterActions = counterSlice.actions;
-
 export default store;
+// import { createSlice, configureStore } from '@reduxjs/toolkit';
+
+// const initialState = { email: '', password:'', token:'', isLoggedIn: false };
+
+// const counterSlice = createSlice({
+//   name: 'counter',
+//   initialState,
+//   reducers: {
+//     increment(state) {
+//       state.counter++;
+//     },
+//     decrement(state) {
+//       state.counter--;
+//     },
+//     increase(state, action) {
+//       state.counter = state.counter + action.payload;
+//     },
+//     toggleCounter(state) {
+//       state.showCounter = !state.showCounter;
+//     }
+//   }
+// });
+
+// const store = configureStore({
+//   reducer: counterSlice.reducer
+// });
+
+// export const counterActions = counterSlice.actions;
+
+// export default store;
+
+
+
+
 // import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 // const initialState = { counter: 0, showCounter: true };
