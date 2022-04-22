@@ -1,4 +1,39 @@
-.Navbar a, .Navbar .MuiButton-root {
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 1rem;
+}
+
+.navbar .firstname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.navbar .firstname svg {
+  margin: 0 0.5rem;
+}
+
+.navbar a,
+.navbar .MuiButton-root {
   font-weight: bold;
   color: #2c3e50;
   font-size: 1rem;
@@ -7,16 +42,19 @@
   text-decoration: none;
 }
 
-.Navbar a.router-link-exact-active, .Navbar .MuiButton-root.router-link-exact-active {
+.navbar a.router-link-exact-active,
+.navbar .MuiButton-root.router-link-exact-active {
   color: #42b983;
 }
 
-.Navbar a .main-nav-item, .Navbar .MuiButton-root .main-nav-item {
+.navbar a .main-nav-item,
+.navbar .MuiButton-root .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
 }
 
-.Navbar a::hover, .Navbar .MuiButton-root::hover {
+.navbar a::hover,
+.navbar .MuiButton-root::hover {
   text-decoration: underline;
 }
 /*# sourceMappingURL=Navbar.css.map */

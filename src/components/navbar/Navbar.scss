@@ -1,8 +1,24 @@
 @import "../../assets/Styles/variables.scss";
 @import "../../assets/Styles/mixin.scss";
 
-.Navbar {
-	a, .MuiButton-root {
+.navbar {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 1rem;
+	.firstname {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		color: $secondary-color;
+		font-size: 1rem;
+		svg{
+			margin: 0 0.5rem;
+		}
+	}
+	a,
+	.MuiButton-root {
 		font-weight: bold;
 		color: $secondary-color;
 		font-size: 1rem;

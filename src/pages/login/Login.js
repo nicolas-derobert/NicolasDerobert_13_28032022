@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import useHttp from "../../service/use-http";
 import { useDispatch } from "react-redux";
@@ -56,13 +56,13 @@ function Login(props) {
 			console.log(data.body.token);
 			dispatch(authActions.login(data.body.token));
 			console.log("Je suis connecté");
-			navigate('/profile')
+			navigate("/profile");
 		}
 	}, [data]);
 
 	return (
 		<Fragment>
-			<div className="bg-dark">
+			<div className="bg-dark login">
 				<section className="sign-in-content">
 					<i className="fa fa-user-circle sign-in-icon"></i>
 					<h1>Sign In</h1>
@@ -90,16 +90,18 @@ function Login(props) {
 								/>
 							</div>{" "}
 							<div className="input-remember">
-								<label>Remember me</label>
 								<input
 									type="checkbox"
 									id="remember-me"
 									// value={enteredAmount}
-								/>
+								/>{" "}
+								<label>Remember me</label>
 							</div>
 						</div>
 						<div className="">
-							<button type="submit">Sign In</button>
+							<button type="submit" className="sign-in-button">
+								Sign In
+							</button>
 						</div>
 					</form>
 				</section>

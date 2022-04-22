@@ -10,7 +10,7 @@ function Profile() {
 	const tokenAuth = useSelector((state) => state.auth.token);
 	const firstNameProfile = useSelector((state) => state.profile.firstName);
 	const lastNameProfile = useSelector((state) => state.profile.lastName);
-
+	const [isEditMode, setIsEditMode] = useState(false);
 	const [isSubmit, setIsSubmit] = useState(false);
 
 	const dispatch = useDispatch();
@@ -47,15 +47,20 @@ function Profile() {
 		console.log(isLoading);
 		console.log(data);
 		setIsSubmit(true);
+		setIsEditMode(false)
+
 		// if (!isLoading && data.status === 200) {
 		// 	dispatch(authActions.login());
 		// }
 	};
 	const cancelHandler = (event) => {
-		dispatch(
-			authProfile.removeProfile()
-		);
+		dispatch(authProfile.removeProfile());
+		setIsEditMode(false)
 	};
+	const editHandler = (event) => {
+		setIsEditMode(true)
+	};
+	
 	useEffect(() => {
 		if (isSubmit && data.status === 200) {
 			console.log(data.body.token);
@@ -71,16 +76,17 @@ function Profile() {
 	}, [data]);
 	return (
 		<Fragment>
-			<div className="bg-dark">
+			<div className="bg-dark profile">
 				<section className="header-content">
 					<h1>
 						Welcome back <br /> {`${firstNameProfile} ${lastNameProfile}`}!
 					</h1>
-					<form onSubmit={submitHandler}>
-						<div className="">
+					{isEditMode && <form onSubmit={submitHandler}>
+						<div className="input-area">
 							<div className="input-wrapper">
-								<label>firstName</label>
+								{/* <label>firstName</label> */}
 								<input
+									placeholder="Tony"
 									type="text"
 									id="firstname"
 									required
@@ -88,16 +94,19 @@ function Profile() {
 								/>
 							</div>
 							<div className="input-wrapper">
-								<label>lastName</label>
-								<input type="text" id="lastname" ref={lastNameInputRef} />
+								{/* <label>lastName</label> */}
+								<input 
+								placeholder="Jarvis" type="text" id="lastname" ref={lastNameInputRef} />
 							</div>
 						</div>
-						<div className="">
+						<div className="handle-profile-button">
 							<button type="submit">Save</button>
-							<button type="reset" onClick={cancelHandler}>cancel</button>
+							<button type="reset" onClick={cancelHandler}>
+								cancel
+							</button>
 						</div>
-					</form>
-					<button className="edit-button">Edit Name</button>
+					</form>}
+					{!isEditMode && <button className="edit-button" onClick={editHandler}>Edit Name</button>}
 				</section>
 				<h2 className="sr-only">Accounts</h2>
 				<section className="accounts">

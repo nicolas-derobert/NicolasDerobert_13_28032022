@@ -1,4 +1,100 @@
-.accounts {
+.profile .input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.profile .input-wrapper label {
+  font-weight: bold;
+}
+
+.profile .input-wrapper input {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.profile .input-wrapper input::-webkit-input-placeholder {
+  color: #c6c6c6;
+}
+
+.profile .input-wrapper input:-ms-input-placeholder {
+  color: #c6c6c6;
+}
+
+.profile .input-wrapper input::-ms-input-placeholder {
+  color: #c6c6c6;
+}
+
+.profile .input-wrapper input::placeholder {
+  color: #c6c6c6;
+}
+
+.profile .handle-profile-button {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2em;
+}
+
+.profile .handle-profile-button button {
+  display: block;
+  width: 10rem;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  border-style: none;
+  background-color: #00bc77;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.profile .input-area {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2em;
+}
+
+.profile .accounts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,31 +118,31 @@
   margin-bottom: 2rem;
 }
 
-.account-amount {
+.profile .account-amount {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
 }
 
-.account-amount-description {
+.profile .account-amount-description {
   margin: 0;
 }
 
-.account-title {
+.profile .account-title {
   margin: 0;
   padding: 0;
   font-size: 1rem;
   font-weight: normal;
 }
 
-.account-content-wrapper {
+.profile .account-content-wrapper {
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.edit-button {
+.profile .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
@@ -54,7 +150,7 @@
   padding: 10px;
 }
 
-.header-content {
+.profile .header-content {
   color: #fff;
   margin-bottom: 2rem;
 }

@@ -1,4 +1,4 @@
-.sign-in-button {
+.login .sign-in-button {
   display: block;
   width: 100%;
   padding: 8px;
@@ -6,53 +6,141 @@
   font-weight: bold;
   margin-top: 1rem;
   border-color: #00bc77;
+  border-style: none;
   background-color: #00bc77;
   color: #fff;
+  text-decoration: underline;
 }
 
-.sign-in-content {
+.login .input-area {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .sign-in-content {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: white;
-  width: 300px;
+  width: 30vw;
   margin: 0 auto;
   margin-top: 3rem;
   padding: 2rem;
 }
 
-.sign-in-icon {
+.login .sign-in-icon {
   font-size: 5rem;
 }
 
-.input-remember {
+.login .input-remember {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
-.input-remember label {
+.login .input-remember label {
   margin-left: 0.25rem;
+  font-weight: bold;
 }
 
-.input-remember, .input-wrapper {
+.login .input-remember input {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.login .input-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   text-align: left;
   margin-bottom: 1rem;
 }
 
-.input-remember label, .input-wrapper label {
+.login .input-wrapper label {
   font-weight: bold;
 }
 
-.input-remember input, .input-wrapper input {
+.login .input-wrapper input {
+  width: 80%;
   padding: 5px;
   font-size: 1.2rem;
+}
+
+.login .input-wrapper input::-webkit-input-placeholder {
+  color: #c6c6c6;
+}
+
+.login .input-wrapper input:-ms-input-placeholder {
+  color: #c6c6c6;
+}
+
+.login .input-wrapper input::-ms-input-placeholder {
+  color: #c6c6c6;
+}
+
+.login .input-wrapper input::placeholder {
+  color: #c6c6c6;
+}
+
+.login .handle-profile-button {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .handle-profile-button button {
+  display: block;
+  width: 10rem;
+  padding: 8px;
+  margin: 0 3rem !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  border-style: none;
+  background-color: #00bc77;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .bg-dark {
