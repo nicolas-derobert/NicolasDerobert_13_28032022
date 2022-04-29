@@ -11,6 +11,10 @@ function Login(props) {
 	let isInitial = true;
 	let navigate = useNavigate();
 	const [isSubmit, setIsSubmit] = useState(false);
+	const [isValidEmail, setIsValidEmail] = useState(true); 
+	const [isValidPassword, setValidPassword] = useState(true); 
+	const [emailValidationClass, setEmailValidationClass] = useState('');	
+	const [passwordValidationClass, setPasswordValidationClass] = useState('');	
 	const dispatch = useDispatch();
 	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
@@ -24,15 +28,26 @@ function Login(props) {
 	const passwordInputRef = useRef();
 
 	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
-	// const switchAuthModeHandler = () => {
-	// 	setIsLogin((prevState) => !prevState);
-	// };
 
 	const submitHandler = (event) => {
-		console.log("Sumit execution");
+		console.log("Submit execution");
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
+		if (enteredEmail===''){
+			setIsValidEmail(false)
+			setEmailValidationClass('invalid')
+			return
+		}
+		setIsValidEmail(true)
+		if (enteredPassword ===''){
+			setValidPassword(false)
+			setPasswordValidationClass('invalid')
+
+			return
+		}
+		setIsValidEmail(true)
+		setValidPassword(true)
 		const bodyContent = {
 			email: `${enteredEmail}`,
 			password: `${enteredPassword}`,
@@ -44,21 +59,19 @@ function Login(props) {
 			headers: headerContent,
 			body: bodyContent,
 		});
-		console.log(isLoading);
-		console.log(data);
 		setIsSubmit(true);
-		// if (!isLoading && data.status === 200) {
-		// 	dispatch(authActions.login());
-		// }
 	};
 	useEffect(() => {
-		if (isSubmit && data.status === 200) {
-			console.log(data.body.token);
+		if(error){
+			return
+		}
+		else if (isSubmit && data.status === 200) {
 			dispatch(authActions.login(data.body.token));
-			console.log("Je suis connecté");
 			navigate("/profile");
 		}
-	}, [data]);
+	}, [data,error]);
+	
+	
 
 	return (
 		<Fragment>
@@ -75,10 +88,12 @@ function Login(props) {
 									id="username"
 									// value={enteredTitle}
 									// onChange={titleChangeHandler}
-									required
+									// required
+									className={emailValidationClass}
 									ref={emailInputRef}
 								/>
 							</div>
+							{!isValidEmail && <p className="errormessage">Email is not valid</p>}
 							<div className="input-wrapper">
 								<label>Password</label>
 								<input
@@ -86,9 +101,11 @@ function Login(props) {
 									id="password"
 									// value={enteredAmount}
 									// onChange={amountChangeHandler}
+									className={passwordValidationClass}
 									ref={passwordInputRef}
 								/>
-							</div>{" "}
+							</div>
+							{!isValidPassword && <p className="errormessage">Password is not valid</p>}
 							<div className="input-remember">
 								<input
 									type="checkbox"
@@ -98,6 +115,7 @@ function Login(props) {
 								<label>Remember me</label>
 							</div>
 						</div>
+						{error && <p className="errormessage">{error}</p>}
 						<div className="">
 							<button type="submit" className="sign-in-button">
 								Sign In
