@@ -12,24 +12,6 @@
   text-decoration: underline;
 }
 
-.login .input-area {
-  width: 50%;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .login .sign-in-content {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -110,37 +92,15 @@
   color: #c6c6c6;
 }
 
-.login .handle-profile-button {
-  width: 50%;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.login .input-wrapper input.invalid {
+  background-color: #d8baba;
+  border-color: #ff0000;
 }
 
-.login .handle-profile-button button {
-  display: block;
-  width: 10rem;
-  padding: 8px;
-  margin: 0 3rem !important;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  border-style: none;
-  background-color: #00bc77;
-  color: #fff;
-  text-decoration: underline;
+.login .errormessage {
+  color: #ff0000;
+  text-align: left;
+  font-weight: 700;
 }
 
 .bg-dark {

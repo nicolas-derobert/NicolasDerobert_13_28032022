@@ -15,7 +15,7 @@ const profileSlice = createSlice({
 			console.log(action.payload);
 			console.log("Je suis authentifié");
 			localStorage.setItem("firstname", action.payload.firstName);
-			localStorage.setItem("lastName", action.payload.lastName);
+			localStorage.setItem("lastname", action.payload.lastName);
 		},
 		removeProfile(state) {
 			state.firstName = "";
