@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
@@ -16,10 +16,6 @@ function AllRoutes() {
 			<Route path="/"  element={<Home/>} />
 			{!isAuth &&<Route path="/Login" element={<Login/>} />}
 			{isAuth &&<Route path="/Profile" element={<Profile/>} />}
-			{/* <Route
-				path="/fichelogement/:FicheLogementId"
-				element={<FicheLogement />}
-			/> */}
 			<Route path="*" element={<ErrorPage />} />
 		</Routes>
 	);

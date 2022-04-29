@@ -12,8 +12,6 @@ const profileSlice = createSlice({
 		setProfile(state, action) {
 			state.firstName = action.payload.firstName;
 			state.lastName = action.payload.lastName;
-			console.log(action.payload);
-			console.log("Je suis authentifié");
 			localStorage.setItem("firstname", action.payload.firstName);
 			localStorage.setItem("lastname", action.payload.lastName);
 		},

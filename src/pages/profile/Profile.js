@@ -15,17 +15,12 @@ function Profile() {
 
 	const dispatch = useDispatch();
 	const url = "http://localhost:3001/api/v1/user/";
-	const loginParameter = "login";
-	const signupParameter = "signup";
 	const profileParameter = "profile";
-	// const loginEndPoint = url + loginParameter;
-	// const signupEndPoint = url + signupParameter;
 	const profileEndPoint = url + profileParameter;
 	const firstNameInputRef = useRef();
 	const lastNameInputRef = useRef();
 	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
 	const submitHandler = (event) => {
-		console.log("Sumit execution");
 		event.preventDefault();
 		const enteredFirstName = firstNameInputRef.current.value;
 		const enteredLastName = lastNameInputRef.current.value;
@@ -44,14 +39,8 @@ function Profile() {
 			headers: headerContent,
 			body: bodyContent,
 		});
-		console.log(isLoading);
-		console.log(data);
 		setIsSubmit(true);
 		setIsEditMode(false)
-
-		// if (!isLoading && data.status === 200) {
-		// 	dispatch(authActions.login());
-		// }
 	};
 	const cancelHandler = (event) => {
 		dispatch(authProfile.removeProfile());
@@ -63,15 +52,12 @@ function Profile() {
 	
 	useEffect(() => {
 		if (isSubmit && data.status === 200) {
-			console.log(data.body.token);
 			dispatch(
 				authProfile.setProfile({
 					firstName: `${data.body.firstName}`,
 					lastName: `${data.body.lastName}`,
 				})
 			);
-			console.log("Je suis mis a jour");
-			// navigate('/profile')
 		}
 	}, [data]);
 	return (

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import NavBar from "../../components/navbar/Navbar";
 import Logo from "../../assets/images/argentBankLogo.png";
 import "./Header.css";

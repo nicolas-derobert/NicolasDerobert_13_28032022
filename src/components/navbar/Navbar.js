@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import Button from "@mui/material/Button";
 import { FaUserCircle } from "react-icons/fa";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-// import LogoutIcon from '@mui/icons-material/Logout';
 
 function NavBar() {
 	const firstNameProfile = useSelector((state) => state.profile.firstName);
@@ -27,7 +26,6 @@ function NavBar() {
 						size="medium"
 						startIcon={<FaUserCircle />}
 						className="main-nav-item"
-						// href="#contained-buttons"
 					>
 						Sign In
 					</Button>

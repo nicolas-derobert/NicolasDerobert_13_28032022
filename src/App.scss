@@ -1,28 +1,5 @@
-// @font-face {
-//     font-family: 'Avenir';
-//     src: local('Avenir'), url(../fonts/avenir_ff/AvenirLTStd-Black.otf) format('truetype');
-//   }
 @import "./assets/Styles/variables.scss";
 @import "./assets/Styles/mixin.scss";
-
-// html{
-//     font-family: 'Montserrat', sans-serif;
-//     font-size: 8px;
-//     @include small-generic {
-//         font-size: 6px;
-// 	}
-// 	@include mobile-generic {
-//         font-size: 6px;
-// 	}
-// }
-// body{
-//     margin: 0;
-//     padding: 0;
-// }
-// h1{
-//     font-size: 6rem;
-//     color: $white-color;
-// }
 
 html {
 	font-family: Avenir, Helvetica, Arial, sans-serif;

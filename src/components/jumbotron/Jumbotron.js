@@ -1,9 +1,5 @@
 import React from "react";
 import "./Jumbotron.css";
-import AccueilImage from "../../assets/images/bank-tree.jpeg";
-// import AproposImage from "../../assets/images/apropos.png";
-
-import { useLocation } from "react-router-dom";
 
 function Jumbotron(props) {
 	return (

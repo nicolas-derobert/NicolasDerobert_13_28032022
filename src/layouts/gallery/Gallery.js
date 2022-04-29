@@ -1,14 +1,11 @@
 import React from "react";
-import Thumb from "../../components/feature/Feature";
 import "./Gallery.css";
-import data from "../../assets/data/logements.json";
 import chatlogo from "../../assets/images/icon-chat.png";
 import moneylogo from "../../assets/images/icon-money.png";
 import securitylogo from "../../assets/images/icon-security.png";
 import Feature from "../../components/feature/Feature";
 
 function Gallery() {
-	//  const listOfItems = data.map((logement) => <Thumb  key={logement.id} id={logement.id} title={logement.title} cover={logement.cover}></Thumb>)
 	return (
 		<div className="gallery">
 			<Feature

@@ -5,10 +5,7 @@ import useHttp from "../../service/use-http";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/auth";
 
-// import {counterActions f}
-
 function Login(props) {
-	let isInitial = true;
 	let navigate = useNavigate();
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [isValidEmail, setIsValidEmail] = useState(true); 
@@ -18,11 +15,8 @@ function Login(props) {
 	const dispatch = useDispatch();
 	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
-	const signupParameter = "signup";
-	const profileParameter = "profile";
 	const loginEndPoint = url + loginParameter;
-	const signupEndPoint = url + signupParameter;
-	const profileEndPoint = url + profileParameter;
+
 
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
@@ -30,7 +24,6 @@ function Login(props) {
 	const { isLoading, error, sendRequest: sendTaskRequest, data } = useHttp();
 
 	const submitHandler = (event) => {
-		console.log("Submit execution");
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
@@ -69,8 +62,7 @@ function Login(props) {
 			dispatch(authActions.login(data.body.token));
 			navigate("/profile");
 		}
-	}, [data,error]);
-	
+	}, [data,error]);	
 	
 
 	return (
@@ -86,9 +78,6 @@ function Login(props) {
 								<input
 									type="text"
 									id="username"
-									// value={enteredTitle}
-									// onChange={titleChangeHandler}
-									// required
 									className={emailValidationClass}
 									ref={emailInputRef}
 								/>
@@ -99,8 +88,6 @@ function Login(props) {
 								<input
 									type="text"
 									id="password"
-									// value={enteredAmount}
-									// onChange={amountChangeHandler}
 									className={passwordValidationClass}
 									ref={passwordInputRef}
 								/>
@@ -110,8 +97,7 @@ function Login(props) {
 								<input
 									type="checkbox"
 									id="remember-me"
-									// value={enteredAmount}
-								/>{" "}
+								/>
 								<label>Remember me</label>
 							</div>
 						</div>
