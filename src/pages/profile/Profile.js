@@ -70,7 +70,6 @@ function Profile() {
 					{isEditMode && <form onSubmit={submitHandler}>
 						<div className="input-area">
 							<div className="input-wrapper">
-								{/* <label>firstName</label> */}
 								<input
 									placeholder="Tony"
 									type="text"
@@ -80,7 +79,6 @@ function Profile() {
 								/>
 							</div>
 							<div className="input-wrapper">
-								{/* <label>lastName</label> */}
 								<input 
 								placeholder="Jarvis" type="text" id="lastname" ref={lastNameInputRef} />
 							</div>
