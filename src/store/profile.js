@@ -19,7 +19,7 @@ const profileSlice = createSlice({
 			state.firstName = "";
 			state.firstName = "";
 			localStorage.removeItem("firstname");
-      localStorage.removeItem("lastName");
+			localStorage.removeItem("lastName");
 		},
 	},
 });

@@ -16,8 +16,6 @@ function Login(props) {
 	const url = "http://localhost:3001/api/v1/user/";
 	const loginParameter = "login";
 	const loginEndPoint = url + loginParameter;
-
-
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 
@@ -36,7 +34,6 @@ function Login(props) {
 		if (enteredPassword ===''){
 			setValidPassword(false)
 			setPasswordValidationClass('invalid')
-
 			return
 		}
 		setIsValidEmail(true)

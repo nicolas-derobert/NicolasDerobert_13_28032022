@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAwBA,AAAA,aAAa,CAAC;EACb,IAAI,EAAE,CAAC;EACP,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,MAAM;EACjB,eAAe,EAAE,OAAO;CACtB",
+    "mappings": "AAGA,AAAA,aAAa,CAAC;EACb,IAAI,EAAE,CAAC;EACP,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,MAAM;EACjB,eAAe,EAAE,OAAO;CACtB",
     "sources": [
         "GlobalLayout.scss",
         "../../assets/Styles/variables.scss",
